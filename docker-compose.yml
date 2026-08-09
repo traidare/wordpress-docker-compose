@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   wp:
     image: wordpress:latest # https://hub.docker.com/_/wordpress/
@@ -16,8 +14,6 @@ services:
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: "${DB_ROOT_PASSWORD}"
     depends_on:
-      - db
-    links:
       - db
 
   wpcli:
@@ -44,11 +40,9 @@ services:
       UPLOAD_LIMIT: 50M
     ports:
       - ${IP}:8080:80
-    links:
-      - db:db
     volumes:
-     - ./config/pma_php.ini:/usr/local/etc/php/conf.d/conf.ini
-     - ./config/pma_config.php:/etc/phpmyadmin/config.user.inc.php
+      - ./config/pma_php.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./config/pma_config.php:/etc/phpmyadmin/config.user.inc.php
 
   db:
     image: mysql:latest # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
