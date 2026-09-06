@@ -103,8 +103,18 @@ define('WP_SITEURL','http://wp-app.local');
 ### Creating database dumps
 
 ```
-./export.sh
+./scripts/export.sh
 ```
+
+This writes a timestamped dump into `wp-data`.
+
+### Restoring database dumps
+
+```
+./scripts/import.sh wp-data/data_01_01_2026.sql
+```
+
+This overwrites the current database with the given dump.
 
 ### Developing a Theme
 
