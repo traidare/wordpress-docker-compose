@@ -6,7 +6,7 @@ With this project you can quickly run the following:
 
 - [WordPress and WP CLI](https://hub.docker.com/_/wordpress/)
 - [phpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin/)
-- [MySQL](https://hub.docker.com/_/mysql/)
+- [MariaDB](https://hub.docker.com/_/mariadb/)
 
 Contents:
 
@@ -19,7 +19,7 @@ Contents:
 
 Make sure you have the latest versions of **Docker** and **Docker Compose** installed on your machine. The commands in this README use the Compose V2 syntax (`docker compose`), which ships with Docker Desktop and is available as the `docker-compose-plugin` package on Linux.
 
-Clone this repository or copy the files from this repository into a new folder. In the **docker-compose.yml** file you may change the IP address (in case you run multiple containers) or the database from MySQL to MariaDB.
+Clone this repository or copy the files from this repository into a new folder. In the **docker-compose.yml** file you may change the IP address (in case you run multiple containers) or the database from MariaDB to MySQL.
 
 Make sure to [add your user to the `docker` group](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) when using Linux.
 
@@ -31,7 +31,7 @@ Copy the example environment into `.env`
 cp env.example .env
 ```
 
-Edit the `.env` file to change the default IP address, MySQL root password and WordPress database name.
+Edit the `.env` file to change the default IP address, ports, database root password and WordPress database name.
 
 ## Installation
 
@@ -43,8 +43,8 @@ docker compose up
 
 This creates two new folders next to your `docker-compose.yml` file.
 
-* `wp-data` – used to store and restore database dumps
-* `wp-app` – the location of your WordPress application
+- `wp-data` – used to store and restore database dumps
+- `wp-app` – the location of your WordPress application
 
 The containers are now built and running. You should be able to access the WordPress installation with the configured IP in the browser address. By default it is `http://127.0.0.1`.
 
@@ -84,8 +84,8 @@ docker compose down -v
 
 Copy the `docker-compose.yml` file into a new directory. In the directory you create two folders:
 
-* `wp-data` – here you add the database dump
-* `wp-app` – here you copy your existing WordPress code
+- `wp-data` – here you add the database dump
+- `wp-app` – here you copy your existing WordPress code
 
 You can now use the `up` command:
 
